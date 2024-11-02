@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfSummarizer", "PdfSummarizer\PdfSummarizer.csproj", "{B18FE853-A43C-43B9-8774-0DABE07E1E94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfSummarizer_Backend", "Backend\PdfSummarizer_Backend.csproj", "{8367DA1D-2B9C-42A3-86E1-99C17079C950}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B18FE853-A43C-43B9-8774-0DABE07E1E94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B18FE853-A43C-43B9-8774-0DABE07E1E94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B18FE853-A43C-43B9-8774-0DABE07E1E94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B18FE853-A43C-43B9-8774-0DABE07E1E94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8367DA1D-2B9C-42A3-86E1-99C17079C950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8367DA1D-2B9C-42A3-86E1-99C17079C950}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8367DA1D-2B9C-42A3-86E1-99C17079C950}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8367DA1D-2B9C-42A3-86E1-99C17079C950}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07D109CB-8D17-48F5-AF2E-E7177E5EA1E2}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Baig\\source\\repos\\PdfSummarizerSln\\PdfSummarizer\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PdfSummarizer.bundle.scp.css",
+      "PackagePath": "staticwebassets\\PdfSummarizer.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Baig\\source\\repos\\PdfSummarizerSln\\PdfSummarizer\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\Baig\\source\\repos\\PdfSummarizerSln\\PdfSummarizer\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Baig\\source\\repos\\PdfSummarizerSln\\PdfSummarizer\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Baig\\source\\repos\\PdfSummarizerSln\\PdfSummarizer\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PdfSummarizer.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.PdfSummarizer.props",
+      "PackagePath": "build\\PdfSummarizer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.PdfSummarizer.props",
+      "PackagePath": "buildMultiTargeting\\PdfSummarizer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.PdfSummarizer.props",
+      "PackagePath": "buildTransitive\\PdfSummarizer.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

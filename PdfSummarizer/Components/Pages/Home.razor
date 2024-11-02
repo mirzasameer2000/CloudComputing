@@ -1,0 +1,157 @@
+﻿@page "/"
+@using static System.Net.WebRequestMethods
+@inject IConfiguration config
+
+
+<PageTitle>Pdf Summarizer</PageTitle>
+
+<h1>Upload Pdf</h1>
+
+<InputFile OnChange="@LoadFiles"class="form-control" multiple="false" accept=".pdf" />
+<button class="btn btn-primary mt-2" @onclick="UploadFile">Upload</button>
+<button class="btn btn-success mt-2" @onclick="SubmitForSummarization" disabled="@(!isFileUploaded)">Submit</button>
+
+@if (!string.IsNullOrEmpty(extractedText))
+{
+    <h3>Extracted Text</h3>
+    <textarea class="form-control" rows="1000" readonly>@extractedText</textarea>
+}
+@if (!string.IsNullOrEmpty(summarizedText))
+{
+    <h3>Summarized Text</h3>
+    <textarea class="form-control" rows="1000" readonly>@summarizedText</textarea>
+}
+
+
+
+@if (errors.Count > 0)
+{
+    <h2>Errors</h2>
+    <ul class="text-danger">
+
+       @foreach (var error in errors)
+        {
+            <li>
+                @error
+            </li>
+        }
+
+    </ul>
+}
+
+@code {
+    private long maxFileSize = 1024 * 1024 * 25;
+    private int maxAllowedFiles = 2;
+    private List<string> errors = new();
+    private bool isFileUploaded = false;
+    private IBrowserFile? selectedFile;
+    private string extractedText = string.Empty;
+    private string summarizedText = string.Empty;
+    
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        errors.Clear();
+
+        if (e.FileCount > maxAllowedFiles)
+        {
+            errors.Add($"Error: Attempting to upload {e.FileCount} files, but only {maxAllowedFiles} files are allowed");
+            return;
+        }
+
+        foreach (var file in e.GetMultipleFiles(maxAllowedFiles))
+        {
+            try
+            {
+                string newFileName = Path.ChangeExtension(
+                Path.GetRandomFileName(),
+                Path.GetExtension(file.Name));
+
+                string path = Path.Combine(
+                    config.GetValue<string>("FileStorage")!,
+                    "Baig",
+                    newFileName);
+
+                Directory.CreateDirectory(Path.Combine(
+                    config.GetValue<string>("FileStorage")!,
+                    "Baig"));
+
+                await using FileStream fs = new(path, FileMode.Create);
+                await file.OpenReadStream(maxFileSize).CopyToAsync(fs);
+            }
+            catch (Exception ex)
+            {
+
+                errors.Add($"File: {file.Name} Error: {ex.Message}");
+            }
+
+        }
+    }
+    
+
+    // File selection event
+    private void OnFileSelected(InputFileChangeEventArgs e)
+    {
+        errors.Clear();
+        selectedFile = e.File;
+    }
+
+    // Upload file to server
+    private async Task UploadFile()
+    {
+        errors.Clear();
+
+        if (selectedFile == null)
+        {
+            errors.Add("No file selected.");
+            return;
+        }
+
+        try
+        {
+            var content = new MultipartFormDataContent();
+            var fileStream = selectedFile.OpenReadStream(1024 * 1024 * 25); // maxFileSize
+            content.Add(new StreamContent(fileStream), "file", selectedFile.Name);
+
+            var response = await Http.PostAsync("api/pdf/extract", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                extractedText = await response.Content.ReadAsStringAsync();
+                isFileUploaded = true;
+            }
+            else
+            {
+                errors.Add("File upload failed.");
+            }
+        }
+        catch (Exception ex)
+        {
+            errors.Add($"Error uploading file: {ex.Message}");
+        }
+    }
+
+    // Submit text for summarization
+    private async Task SubmitForSummarization()
+    {
+        errors.Clear();
+
+        if (string.IsNullOrWhiteSpace(extractedText))
+        {
+            errors.Add("No extracted text to summarize.");
+            return;
+        }
+
+        var response = await Http.PostAsJsonAsync("api/pdf/summarize", extractedText);
+
+        if (response.IsSuccessStatusCode)
+        {
+            summarizedText = await response.Content.ReadAsStringAsync();
+        }
+        else
+        {
+            errors.Add("Summarization failed.");
+        }
+    }
+    
+}

@@ -1,0 +1,7 @@
+C:\Users\Baig\source\repos\PdfSummarizerSln\Backend\obj\Debug\net8.0\PdfSummarizer_Backend.csproj.AssemblyReference.cache
+C:\Users\Baig\source\repos\PdfSummarizerSln\Backend\obj\Debug\net8.0\PdfSummarizer_Backend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Baig\source\repos\PdfSummarizerSln\Backend\obj\Debug\net8.0\PdfSummarizer_Backend.AssemblyInfoInputs.cache
+C:\Users\Baig\source\repos\PdfSummarizerSln\Backend\obj\Debug\net8.0\PdfSummarizer_Backend.AssemblyInfo.cs
+C:\Users\Baig\source\repos\PdfSummarizerSln\Backend\obj\Debug\net8.0\PdfSummarizer_Backend.csproj.CoreCompileInputs.cache
+C:\Users\Baig\source\repos\PdfSummarizerSln\Backend\obj\Debug\net8.0\PdfSummarizer_Backend.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Baig\source\repos\PdfSummarizerSln\Backend\obj\Debug\net8.0\PdfSummarizer_Backend.MvcApplicationPartsAssemblyInfo.cache
